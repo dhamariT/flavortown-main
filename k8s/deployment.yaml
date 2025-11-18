@@ -24,8 +24,8 @@ spec:
     spec:
       containers:
       - name: buildboard
-        image: buildboard-web:latest
-        imagePullPolicy: IfNotPresent
+        image: gcr.io/cosmic-octane-472721-p3/buildboard-web:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
           name: http
