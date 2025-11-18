@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: buildboard-config
+  labels:
+    app: buildboard
+data:
+  # Database configuration
+  POSTGRES_HOST: "postgres-service"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: "buildboard_production"
+  POSTGRES_USER: "postgres"
+
+  # Application settings
+  RAILS_MAX_THREADS: "5"
+  WEB_CONCURRENCY: "2"
+
+  # Feature flags (if using)
+  ENABLE_FEATURE_X: "true"
+
+  # External service URLs (non-sensitive)
+  # Add your API endpoints here

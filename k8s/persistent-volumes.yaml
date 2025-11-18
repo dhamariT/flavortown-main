@@ -1,0 +1,34 @@
+---
+# Persistent Volume Claim for PostgreSQL
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+  labels:
+    app: buildboard
+    tier: database
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  # storageClassName: standard  # Uncomment and set based on your cloud provider
+  # Options: standard, gp2 (AWS), standard-rwo (GCP), managed-premium (Azure)
+
+---
+# Persistent Volume Claim for Rails app storage (Active Storage, etc.)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: buildboard-storage-pvc
+  labels:
+    app: buildboard
+    tier: web
+spec:
+  accessModes:
+    - ReadWriteMany  # Allows multiple pods to access
+  resources:
+    requests:
+      storage: 20Gi
+  # storageClassName: standard  # Uncomment and set based on your cloud provider

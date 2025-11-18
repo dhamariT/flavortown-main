@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: buildboard-ingress
+  labels:
+    app: buildboard
+  annotations:
+    # For NGINX Ingress Controller
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+    # SSL/TLS with cert-manager (optional)
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+    # For AWS ALB Ingress Controller (uncomment if using AWS)
+    # kubernetes.io/ingress.class: alb
+    # alb.ingress.kubernetes.io/scheme: internet-facing
+    # alb.ingress.kubernetes.io/target-type: ip
+
+    # For GCP Ingress (uncomment if using GCP)
+    # kubernetes.io/ingress.class: "gce"
+
+    # Rate limiting (optional)
+    # nginx.ingress.kubernetes.io/limit-rps: "100"
+spec:
+  ingressClassName: nginx  # Change based on your ingress controller
+  tls:
+  - hosts:
+    - buildboard.yourdomain.com  # Replace with your domain
+    secretName: buildboard-tls-secret
+  rules:
+  - host: buildboard.yourdomain.com  # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: buildboard-service
+            port:
+              number: 80
