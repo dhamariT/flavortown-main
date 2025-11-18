@@ -1,0 +1,73 @@
+<%= content_for :stylesheets do %>
+  <%= stylesheet_link_tag "landing", "data-turbo-track": "reload" %>
+<% end %>
+
+<div class="section section-1">
+  <%= inline_svg_tag "landing/section-1/flag-orpheus-top.svg", class: "orph-flag" %>
+
+  <div class="login-btn">
+    <%= form_tag "/auth/slack", method: :post, data: {turbo: false} do %>
+      <button class="btn btn--red btn--striped">
+        <div>
+          <%= image_tag "mask/enter.webp", width: 20, height: 20 %>
+          Sign in!
+        </div>
+      </button>
+    <% end %>
+    <% if current_user&.admin? %>
+      <%= link_to "/admin", class: "btn-striped-red is_admin" do %>
+        <div>Admin</div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="hero">
+    <!-- TODO: som-style hero image? -->
+  </div>
+
+<!--  <div class="rsvp-container">-->
+    <%#= render "landing/rsvp_form", rsvp: Rsvp.new %>
+<!--  </div>-->
+
+  <div class="spectators">
+    <%#= image_tag "landing/section-1/spectators-middle.png", class: "spectators-middle" %>
+    <%= image_tag "landing/section-1/spectators-front.png", class: "spectators-front" %>
+  </div>
+</div>
+
+<!--<footer class="footer">-->
+  <%# 2.times do |i| %>
+<!--    <div class="<%#= i == 0 ? 'footer-visible' : 'footer-hidden' %>">-->
+<!--      <div class="footer-about">-->
+<!--        <h2>A project by <a href="https://hackclub.com" target="_blank" rel="noopener noreferrer">Hack Club</a></h2>-->
+<!--        <p class="about-text">-->
+<!--          Hack Club is a 501(c)(3) nonprofit and network of 60k+ technical high schoolers. We believe you learn best by building so we're creating community and providing grants so you can make awesome projects. In the past few years, we've <a href="https://summer.hackclub.com/" target="_blank" rel="noopener noreferrer">partnered with GitHub to run Summer of Making</a>, <a href="https://github.com/hackclub/the-hacker-zephyr" target="_blank" rel="noopener noreferrer">hosted the world's longest hackathon on land</a>, and <a href="https://www.youtube.com/watch?v=QvCoISXfcE8" target="_blank" rel="noopener noreferrer">ran Canada's largest high school hackathon</a>.-->
+<!--        </p>-->
+<!--        <p class="tagline">At Hack Club, students aren't just learning, they're shipping.</p>-->
+<!--      </div>-->
+
+<!--      <div class="footer-bottom">-->
+<!--        <div class="footer-links">-->
+<!--          <div class="link-column">-->
+<!--            <h3>Hack Club</h3>-->
+<!--            <div class="links-list">-->
+<!--              <a href="https://hackclub.com/philosophy/" target="_blank" rel="noopener noreferrer">Philosophy</a>-->
+<!--              <a href="https://hackclub.com/team/" target="_blank" rel="noopener noreferrer">Our Team & Board</a>-->
+<!--              <a href="https://hackclub.com/brand/" target="_blank" rel="noopener noreferrer">Branding</a>-->
+<!--              <a href="https://hackclub.com/philanthropy/" target="_blank" rel="noopener noreferrer">Donate</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="link-column">-->
+<!--            <h3>Resources</h3>-->
+<!--            <div class="links-list">-->
+<!--              <a href="https://events.hackclub.com/" target="_blank" rel="noopener noreferrer">Community Events</a>-->
+<!--              <a href="https://jams.hackclub.com/" target="_blank" rel="noopener noreferrer">Jams</a>-->
+<!--              <a href="https://workshops.hackclub.com/" target="_blank" rel="noopener noreferrer">Workshops</a>-->
+<!--              <a href="https://hackclub.com/conduct/" target="_blank" rel="noopener noreferrer">Code of Conduct</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+  <%# end %>
+</footer>

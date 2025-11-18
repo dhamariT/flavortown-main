@@ -1,0 +1,53 @@
+// Unified Color Palette for Buildboard
+// Combining colors from all three palette files
+
+:root {
+  // Primary Brand Colors
+  --copper: #B97542;
+  --butterscotch: #D6924A;
+  --chili-red: #E0432A;
+  
+  // Warm Browns & Earth Tones
+  --seal-brown: #6A2D14;
+  --coffee: #614C33;
+  --coffee-2: #805B4D;
+  --brown-sugar: #B47662;
+  --russet: #81522A;
+  --bistre: #3D2516;
+  --chestnut: #A0422C;
+  
+  // Neutral & Purple Tones
+  --dark-purple: #322946;
+  --ultra-violet: #676482;
+  --wenge: #5F5051;
+  
+  // Light & Accent Colors
+  --champagne-pink: #F9DCCC;
+  --thistle: #D6BEC6;
+  --lion: #C2967C;
+  --rose-taupe: #A4696D;
+  --wine: #643639;
+}
+
+// SCSS Variables - for use in SCSS files
+$copper: #B97542;
+$butterscotch: #D6924A;
+$chili-red: #E0432A;
+
+$seal-brown: #6A2D14;
+$coffee: #614C33;
+$coffee-2: #805B4D;
+$brown-sugar: #B47662;
+$russet: #81522A;
+$bistre: #3D2516;
+$chestnut: #A0422C;
+
+$dark-purple: #322946;
+$ultra-violet: #676482;
+$wenge: #5F5051;
+
+$champagne-pink: #F9DCCC;
+$thistle: #D6BEC6;
+$lion: #C2967C;
+$rose-taupe: #A4696D;
+$wine: #643639;

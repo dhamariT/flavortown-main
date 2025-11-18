@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Unset RBENV_VERSION to allow .ruby-version file to take precedence
+unset RBENV_VERSION
+
+if ! gem list foreman -i --silent; then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+exec foreman start -f Procfile.dev --env /dev/null "$@"

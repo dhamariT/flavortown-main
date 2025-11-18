@@ -1,0 +1,2 @@
+web: env RBENV_VERSION= bundle exec rails server -b 'ssl://0.0.0.0:3000?key=localhost.key&cert=localhost.crt'
+css: env RBENV_VERSION= bundle exec rails dartsass:watch
