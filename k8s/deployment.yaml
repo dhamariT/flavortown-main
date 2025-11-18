@@ -27,7 +27,7 @@ spec:
         image: buildboard-web:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 3000
+        - containerPort: 80
           name: http
           protocol: TCP
         env:
@@ -38,6 +38,11 @@ spec:
         - name: RAILS_SERVE_STATIC_FILES
           value: "true"
         - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: database-url
+        - name: SOLID_DATABASE_URL
           valueFrom:
             secretKeyRef:
               name: buildboard-secrets
@@ -60,7 +65,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 3000
+            port: 80
           initialDelaySeconds: 60
           periodSeconds: 10
           timeoutSeconds: 5
@@ -68,7 +73,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /
-            port: 3000
+            port: 80
           initialDelaySeconds: 30
           periodSeconds: 5
           timeoutSeconds: 3

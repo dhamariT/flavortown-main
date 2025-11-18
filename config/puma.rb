@@ -30,6 +30,10 @@ threads threads_count, threads_count
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 port ENV.fetch("PORT", 3000)
 
+# Bind to all network interfaces (0.0.0.0) to allow external access
+# This is necessary for Docker and Kubernetes deployments
+bind "tcp://0.0.0.0:#{ENV.fetch('PORT', 3000)}"
+
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
 
