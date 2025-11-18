@@ -1,0 +1,5 @@
+# Ignore actual secrets file - only commit the example
+secrets.yaml
+
+# Ignore any temporary kustomize builds
+kustomization.yaml
