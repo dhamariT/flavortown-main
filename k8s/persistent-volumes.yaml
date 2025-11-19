@@ -27,8 +27,8 @@ metadata:
     tier: web
 spec:
   accessModes:
-    - ReadWriteMany  # Allows multiple pods to access
+    - ReadWriteOnce  # Single pod access (standard for GKE)
   resources:
     requests:
       storage: 20Gi
-  # storageClassName: standard  # Uncomment and set based on your cloud provider
+  storageClassName: standard-rwo  # GKE standard storage class
