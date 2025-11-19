@@ -52,6 +52,56 @@ spec:
             secretKeyRef:
               name: buildboard-secrets
               key: secret-key-base
+        - name: MASTER_KEY
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: master-key
+        - name: LOCKBOX_MASTER_KEY
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: lockbox-master-key
+        - name: LOOPS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: loops-api-key
+        - name: GROK_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: grok-api-key
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: openai-api-key
+        - name: ANTHROPIC_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: anthropic-api-key
+        - name: SLACK_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: slack-client-secret
+        - name: SLACK_SIGNING_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: slack-signing-secret
+        - name: SLACK_BOT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: slack-bot-token
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: buildboard-secrets
+              key: smtp-password
         envFrom:
         - configMapRef:
             name: buildboard-config

@@ -46,3 +46,7 @@ db/seeds/shop_items.csv
 
 # Ignore files from JetBrains IDEs
 /.idea
+
+# Ignore Kubernetes secrets files (contain production credentials)
+/k8s/secrets.yaml
+/k8s/secrets-production.yaml

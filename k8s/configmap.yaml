@@ -5,6 +5,10 @@ metadata:
   labels:
     app: buildboard
 data:
+  # Rails Configuration
+  RAILS_ENV: "production"
+  ENVIRONMENT: "production"
+
   # Database configuration
   POSTGRES_HOST: "postgres-service"
   POSTGRES_PORT: "5432"
@@ -15,8 +19,26 @@ data:
   RAILS_MAX_THREADS: "5"
   WEB_CONCURRENCY: "2"
 
-  # Feature flags (if using)
-  ENABLE_FEATURE_X: "true"
+  # Application URL
+  APP_URL: "https://buildboard.dhamari.com"
 
-  # External service URLs (non-sensitive)
-  # Add your API endpoints here
+  # Email Configuration (non-sensitive)
+  MAILER_FROM_EMAIL: "dhamari@hackclub.com"
+  SMTP_ADDRESS: "smtp.gmail.com"
+  SMTP_PORT: "587"
+  SMTP_DOMAIN: "gmail.com"
+  SMTP_USERNAME: "dhamari@hackclub.com"
+  SMTP_AUTHENTICATION: "plain"
+  SMTP_ENABLE_STARTTLS_AUTO: "true"
+
+  # Slack Configuration (non-sensitive)
+  SLACK_CLIENT_ID: "2210535565.9919620001367"
+  SLACK_REDIRECT_URI: "https://buildboard.dhamari.com/auth/slack/callback"
+
+  # OpenTelemetry Configuration
+  OTEL_SERVICE_NAME: "buildboard"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://localhost:4318"
+  OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf"
+
+  # Feature flags
+  ENABLE_FEATURE_X: "true"
