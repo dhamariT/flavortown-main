@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: buildboard
-        image: gcr.io/cosmic-octane-472721-p3/buildboard-web@sha256:23183f22986a4d43d70cce0ec21627f120fa71f8ec042e04b6e6ad6d4d4248de
+        image: ghcr.io/dhamarit/flavortown-main:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
